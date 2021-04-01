@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 
-from ts.shinuk.one_euro_filter import OneEuroFilter
+from ts.custom_handler.one_euro_filter import OneEuroFilter
 
 class Pose:
     num_kpts = 18

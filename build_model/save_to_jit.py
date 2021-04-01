@@ -42,13 +42,14 @@
 
 import torch
 import io
+import os
 
 from model import PoseEstimationWithMobileNet
 from load_state import load_state
 
 
 model = PoseEstimationWithMobileNet()
-checkpoint = torch.load("checkpoint_iter_370000.pth", map_location='cpu')
+checkpoint = torch.load(os.path.join(os.getcwd(), "checkpoint_iter_370000.pth"), map_location='cpu')
 load_state(model, checkpoint)
 
 m = torch.jit.script(model)

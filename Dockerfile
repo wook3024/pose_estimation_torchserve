@@ -22,14 +22,17 @@ RUN git clone https://github.com/wook3024/pose_estimation_torchserve.git /worksp
 RUN cp -r /workspace/pose_estimation_torchserve/custom_handler /opt/conda/lib/python3.8/site-packages/ts/
 
 RUN mkdir model_store && \
-    curl -O https://download.pytorch.org/models/densenet161-8d451a50.pth
-
-RUN python save_to_jit.py
+    cd /workspace/pose_estimation_torchserve/build_model && \
+    curl -O https://download.01.org/opencv/openvino_training_extensions/models/human_pose_estimation/checkpoint_iter_370000.pth
 
 RUN cd /workspace/pose_estimation_torchserve/build_model && \
-    torch-model-archiver --model-name "PoseEstimation" --version 1.0 --serialized-file ./PoseEstimation_model.pt --handler "./handler.py"
+    python /workspace/pose_estimation_torchserve/build_model/save_to_jit.py
+
+RUN torch-model-archiver --model-name "PoseEstimation" --version 1.0 \
+    --serialized-file /workspace/pose_estimation_torchserve/build_model/PoseEstimation_model.pt \
+    --handler "/workspace/pose_estimation_torchserve/build_model/handler.py"
 
 RUN mv PoseEstimation.mar /workspace/model_store/PoseEstimation.mar && \
     cd /workspace
 
-RUN torchserve --start --ncs --model-store model_store --models PoseEstimation_model.mar
+RUN torchserve --start --ncs --model-store model_store --models PoseEstimation.mar

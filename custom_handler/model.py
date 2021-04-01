@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 
-from ts.shinuk.module import conv, conv_dw, conv_dw_no_bn, Cpm, InitialStage, RefinementStageBlock, RefinementStage
+from ts.custom_handler.module import conv, conv_dw, conv_dw_no_bn, Cpm, InitialStage, RefinementStageBlock, RefinementStage
 
 
 
