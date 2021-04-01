@@ -7,11 +7,11 @@ import json
 from flask import jsonify
 from PIL import Image
 # from munch import  Munch
-from ts.shinuk.model import PoseEstimationWithMobileNet
-from ts.shinuk.keypoints import extract_keypoints, group_keypoints
-from ts.shinuk.load_state import load_state
-from ts.shinuk.pose import Pose, track_poses
-from ts.shinuk.val import normalize, pad_width
+from ts.custom_handler.model import PoseEstimationWithMobileNet
+from ts.custom_handler.keypoints import extract_keypoints, group_keypoints
+from ts.custom_handler.load_state import load_state
+from ts.custom_handler.pose import Pose, track_poses
+from ts.custom_handler.val import normalize, pad_width
 
 # custom handler file
 
