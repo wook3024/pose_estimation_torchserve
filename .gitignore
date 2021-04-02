@@ -104,5 +104,8 @@ ENV/
 tags
 *~
 
-# image
+
 *.jpg
+*.pth
+*.pt
+*.mar
