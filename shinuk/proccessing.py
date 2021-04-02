@@ -1,14 +1,25 @@
+'''
+@inproceedings{osokin2018lightweight_openpose,
+    author={Osokin, Daniil},
+    title={Real-time 2D Multi-Person Pose Estimation on CPU: Lightweight OpenPose},
+    booktitle = {arXiv preprint arXiv:1811.12004},
+    year = {2018}
+}
+'''
+
+
+
 import argparse
 
 import cv2
 import numpy as np
 import torch
 
-from ts.custom_handler.model import PoseEstimationWithMobileNet
-from ts.custom_handler.keypoints import extract_keypoints, group_keypoints
-from ts.custom_handler.load_state import load_state
-from ts.custom_handler.pose import Pose, track_poses
-from ts.custom_handler.val import normalize, pad_width
+from model import PoseEstimationWithMobileNet
+from keypoints import extract_keypoints, group_keypoints
+from load_state import load_state
+from pose import Pose, track_poses
+from val import normalize, pad_width
 
 
 

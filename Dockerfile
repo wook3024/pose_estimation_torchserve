@@ -35,4 +35,7 @@ RUN torch-model-archiver --model-name "PoseEstimation" --version 1.0 \
 RUN mv PoseEstimation.mar /workspace/model_store/PoseEstimation.mar && \
     cd /workspace
 
-RUN torchserve --start --ncs --model-store model_store --models PoseEstimation.mar
+
+# torchserve --start --ncs --model-store model_store --models PoseEstimation.mar
+# curl -O https://raw.githubusercontent.com/pytorch/serve/master/docs/images/kitten_small.jpg
+# curl http://127.0.0.1:8080/predictions/PoseEstimation -T kitten_small.jpg

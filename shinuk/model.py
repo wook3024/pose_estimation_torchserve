@@ -1,7 +1,18 @@
+'''
+@inproceedings{osokin2018lightweight_openpose,
+    author={Osokin, Daniil},
+    title={Real-time 2D Multi-Person Pose Estimation on CPU: Lightweight OpenPose},
+    booktitle = {arXiv preprint arXiv:1811.12004},
+    year = {2018}
+}
+'''
+
+
+
 import torch
 from torch import nn
 
-from ts.custom_handler.module import conv, conv_dw, conv_dw_no_bn, Cpm, InitialStage, RefinementStageBlock, RefinementStage
+from module import conv, conv_dw, conv_dw_no_bn, Cpm, InitialStage, RefinementStageBlock, RefinementStage
 
 
 

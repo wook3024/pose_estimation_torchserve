@@ -1,7 +1,18 @@
+'''
+@inproceedings{osokin2018lightweight_openpose,
+    author={Osokin, Daniil},
+    title={Real-time 2D Multi-Person Pose Estimation on CPU: Lightweight OpenPose},
+    booktitle = {arXiv preprint arXiv:1811.12004},
+    year = {2018}
+}
+'''
+
+
+
 import numpy as np
 import cv2
 
-from ts.custom_handler.one_euro_filter import OneEuroFilter
+from one_euro_filter import OneEuroFilter
 
 class Pose:
     num_kpts = 18
