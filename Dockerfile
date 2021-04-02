@@ -9,7 +9,8 @@ RUN apt-get update && \
     sudo apt install --no-install-recommends -y openjdk-11-jre-headless
 
 RUN pip3 install torchserve torch-model-archiver && \
-    pip3 install opencv-python
+    pip3 install opencv-python && \ 
+    pip3 install shinuk==1.0.9
 
 RUN git clone https://github.com/pytorch/serve.git /workspace/serve && \
     cd /workspace/serve && \
@@ -19,7 +20,7 @@ RUN git clone https://github.com/pytorch/serve.git /workspace/serve && \
 
 RUN git clone https://github.com/wook3024/pose_estimation_torchserve.git /workspace/pose_estimation_torchserve
 
-RUN cp -r /workspace/pose_estimation_torchserve/custom_handler /opt/conda/lib/python3.8/site-packages/ts/
+# RUN cp -r /workspace/pose_estimation_torchserve/custom_handler /opt/conda/lib/python3.8/site-packages/ts/
 
 RUN mkdir model_store && \
     cd /workspace/pose_estimation_torchserve/build_model && \
@@ -36,6 +37,7 @@ RUN mv PoseEstimation.mar /workspace/model_store/PoseEstimation.mar && \
     cd /workspace
 
 
+# docker run --rm --name pytorch --gpus all -it wook3024/pose_estimation_torchserve:1.0.0
 # torchserve --start --ncs --model-store model_store --models PoseEstimation.mar
 # curl -O https://raw.githubusercontent.com/pytorch/serve/master/docs/images/kitten_small.jpg
 # curl http://127.0.0.1:8080/predictions/PoseEstimation -T kitten_small.jpg

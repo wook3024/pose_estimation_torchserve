@@ -1,7 +1,7 @@
 import numpy as np
 from PIL import Image
 
-from handler import ModelHandler
+from handler_test import ModelHandler
 
 image = np.array(Image.open("human_pose.jpg").convert('RGB'))
 

@@ -22,7 +22,7 @@ ModelHandler defines a custom model handler.
 """
 
 
-from ts.torch_handler.base_handler import BaseHandler
+from base_handler import BaseHandler
 
 class ModelHandler(BaseHandler):
     """
@@ -45,9 +45,9 @@ class ModelHandler(BaseHandler):
         self.stride = 8
         self.upsample_ratio = 4
         self.previous_poses = None
-        # self.model = PoseEstimationWithMobileNet()
-        # checkpoint = torch.load("checkpoint_iter_370000.pth", map_location='cpu')
-        # load_state(self.model, checkpoint)
+        self.model = PoseEstimationWithMobileNet()
+        checkpoint = torch.load("checkpoint_iter_370000.pth", map_location='cpu')
+        load_state(self.model, checkpoint)
 
     def initialize(self, context):
         """
@@ -88,10 +88,11 @@ class ModelHandler(BaseHandler):
         pad_value=(0, 0, 0)
         img_mean=np.array([128, 128, 128], np.float32)
         img_scale=np.float32(1/256)
-        img = Image.open(io.BytesIO(data[0]["body"])).convert('RGB')
-        nparr = np.frombuffer(data[0]["body"], np.uint8)
-        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR) # cv2.IMREAD_COLOR in OpenCV 3.1
+        # img = Image.open(io.BytesIO(data[0]["body"])).convert('RGB')
+        # nparr = np.frombuffer(data[0]["body"], np.uint8)
+        # img = cv2.imdecode(nparr, cv2.IMREAD_COLOR) # cv2.IMREAD_COLOR in OpenCV 3.1
         # print("img", img)
+        img = data
         height, width, _ = img.shape
         # print(type(self.height_size), type(height))
         scale = self.height_size / height
