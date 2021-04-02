@@ -1,6 +1,0 @@
-README.txt
-setup.py
-pose_estimation_module.egg-info/PKG-INFO
-pose_estimation_module.egg-info/SOURCES.txt
-pose_estimation_module.egg-info/dependency_links.txt
-pose_estimation_module.egg-info/top_level.txt

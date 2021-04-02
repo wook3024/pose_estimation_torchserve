@@ -14,7 +14,7 @@ setup(
     description="pose_estimation_module for torchserve",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/shinuk/reader",
+    url="https://github.com/wook3024/pose_estimation_torchserve/shinuk",
     author="shinuk",
     author_email="wook3024@gmail.com",
     license="MIT",
