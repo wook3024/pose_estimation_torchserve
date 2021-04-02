@@ -7,7 +7,7 @@ import json
 from flask import jsonify
 from PIL import Image
 # from munch import  Munch
-from shinuk.model import PoseEstimationWithMobileNet
+from shinuk.module import PoseEstimationWithMobileNet
 from shinuk.keypoints import extract_keypoints, group_keypoints
 from shinuk.load_state import load_state
 from shinuk.pose import Pose, track_poses

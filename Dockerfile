@@ -20,7 +20,7 @@ RUN git clone https://github.com/pytorch/serve.git /workspace/serve && \
 
 RUN git clone https://github.com/wook3024/pose_estimation_torchserve.git /workspace/pose_estimation_torchserve
 
-# RUN cp -r /workspace/pose_estimation_torchserve/custom_handler /opt/conda/lib/python3.8/site-packages/ts/
+# RUN cp -r /workspace/pose_estimation_torchserve/shinuk /opt/conda/lib/python3.8/site-packages/ts/
 
 RUN mkdir model_store && \
     cd /workspace/pose_estimation_torchserve/build_model && \
