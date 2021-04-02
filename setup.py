@@ -39,7 +39,7 @@ from setuptools import setup, find_packages
 
 setup(
     name             = 'shinuk',
-    version          = '1.0.9',
+    version          = '1.1.0',
     description      = 'Python wrapper for pose_estimation',
     author           = 'Shinuk Yi',
     author_email     = 'wook3024@gmail.com',

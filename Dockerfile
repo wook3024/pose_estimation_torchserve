@@ -10,7 +10,7 @@ RUN apt-get update && \
 
 RUN pip3 install torchserve torch-model-archiver && \
     pip3 install opencv-python && \ 
-    pip3 install shinuk==1.0.9
+    pip3 install shinuk
 
 RUN git clone https://github.com/pytorch/serve.git /workspace/serve && \
     cd /workspace/serve && \
@@ -30,11 +30,12 @@ RUN cd /workspace/pose_estimation_torchserve/build_model && \
     python /workspace/pose_estimation_torchserve/build_model/save_to_jit.py
 
 RUN torch-model-archiver --model-name "PoseEstimation" --version 1.0 \
-    --serialized-file /workspace/pose_estimation_torchserve/build_model/PoseEstimation_model.pt \
-    --handler "/workspace/pose_estimation_torchserve/build_model/handler.py"
+    --serialized-file ./PoseEstimation_model.pt \
+    --handler "./handler.py"
 
-RUN mv PoseEstimation.mar /workspace/model_store/PoseEstimation.mar && \
+RUN mv ./PoseEstimation.mar /workspace/model_store/PoseEstimation.mar && \
     cd /workspace
+
 
 
 # docker run --rm --name pytorch --gpus all -it wook3024/pose_estimation_torchserve:1.0.0
